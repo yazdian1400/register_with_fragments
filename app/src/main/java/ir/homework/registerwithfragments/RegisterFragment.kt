@@ -26,7 +26,7 @@ class RegisterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.tvTest.setOnClickListener{
+        binding.etEmail.setOnClickListener{
             findNavController().navigate(R.id.action_registerFragment_to_infoFragment)
         }
     }
