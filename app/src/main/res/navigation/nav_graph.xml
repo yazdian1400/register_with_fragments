@@ -19,6 +19,7 @@
         android:name="ir.homework.registerwithfragments.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
+
         <action
             android:id="@+id/action_registerFragment_to_infoFragment"
             app:destination="@id/infoFragment" />
