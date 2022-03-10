@@ -64,6 +64,12 @@ class RegisterFragment : Fragment() {
                 Toast.makeText(activity, "Please fill all fields.", Toast.LENGTH_LONG).show()
             }
         } else {
+            val bundle = Bundle()
+            bundle.putString("name", name)
+            bundle.putString("username", username)
+            bundle.putString("email", email)
+            bundle.putString("password", pass1 as String)
+            bundle.putBoolean("isFemale", isFemale)
 
 //            editor.putString("name", name);
 //            editor.putString("username", username)
@@ -71,7 +77,7 @@ class RegisterFragment : Fragment() {
 //            editor.putString("password",pass1 as String)
 //            editor.putBoolean("isFemale",isFemale)
 //            editor.apply()
-            findNavController().navigate(R.id.action_registerFragment_to_infoFragment)
+            findNavController().navigate(R.id.action_registerFragment_to_infoFragment, bundle)
         }
     }
 

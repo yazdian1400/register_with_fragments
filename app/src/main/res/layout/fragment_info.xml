@@ -91,14 +91,14 @@
         tools:text="Gender" />
 
     <Button
-        android:id="@+id/btn_hide_info"
+        android:id="@+id/btn_save"
         android:layout_width="match_parent"
         android:layout_height="90dp"
         android:layout_weight="1"
         android:layout_marginTop="30dp"
         android:backgroundTint="#E91E63"
         android:fontFamily="@font/pointfree"
-        android:text="Hide info"
+        android:text="save"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:cornerRadius="64dp"
