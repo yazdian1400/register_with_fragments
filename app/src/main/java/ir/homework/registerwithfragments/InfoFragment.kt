@@ -13,6 +13,11 @@ import ir.homework.registerwithfragments.databinding.FragmentInfoBinding
 class InfoFragment : Fragment() {
     lateinit var binding: FragmentInfoBinding
     lateinit var sharedPreferences: SharedPreferences
+    var name = ""
+    var username = ""
+    var email = ""
+    var password = ""
+    var isFemale: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,11 +34,11 @@ class InfoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val name = arguments?.getString("name")
-        val username = arguments?.getString("username")
-        val email = arguments?.getString("email")
-        val password = arguments?.getString("password")
-        val isFemale = arguments?.getBoolean("isFemale")
+        name = arguments?.getString("name").toString()
+        username = arguments?.getString("username").toString()
+        email = arguments?.getString("email").toString()
+        password = arguments?.getString("password").toString()
+        isFemale = arguments?.getBoolean("isFemale")!!
 
         binding.tvFullName.text = "full name: " + name
         binding.tvUsername.text = "username: " + username
@@ -43,6 +48,19 @@ class InfoFragment : Fragment() {
             true -> "Female"
             else -> "Male"
         }
+        binding.btnSave.setOnClickListener{
+            onSaveClick()
+        }
+    }
+
+    private fun onSaveClick() {
+        val editor = sharedPreferences.edit()
+        editor.putString("fullName", name)
+        editor.putString("username", username)
+        editor.putString("email", email)
+        editor.putString("password", password)
+        editor.putBoolean("isFemale", isFemale)
+        editor.apply()
     }
 
     override fun onAttach(context: Context) {
