@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import ir.homework.registerwithfragments.databinding.FragmentInfoBinding
 
 class InfoFragment : Fragment() {
@@ -61,6 +62,9 @@ class InfoFragment : Fragment() {
         editor.putString("password", password)
         editor.putBoolean("isFemale", isFemale)
         editor.apply()
+        val bundle = Bundle()
+        bundle.putBoolean("hasRegistered", true)
+        findNavController().navigate(R.id.action_infoFragment_to_registerFragment, bundle)
     }
 
     override fun onAttach(context: Context) {
