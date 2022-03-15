@@ -11,12 +11,23 @@
         android:label="fragment_info"
         tools:layout="@layout/fragment_info" >
         <argument
-            android:name="myArg"
-            app:argType="integer"
-            android:defaultValue="0"/>
+            android:name="name"
+            app:argType="string" />
         <action
-            android:id="@+id/action_infoFragment_to_registerFragment"
+            android:id="@+id/save_action"
             app:destination="@id/registerFragment" />
+        <argument
+            android:name="username"
+            app:argType="string" />
+        <argument
+            android:name="email"
+            app:argType="string" />
+        <argument android:name="password"
+            app:argType="string" />
+        <argument
+            android:name="isFemale"
+            app:argType="boolean"
+            android:defaultValue="false" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -24,7 +35,7 @@
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
-            android:id="@+id/action_registerFragment_to_infoFragment"
+            android:id="@+id/register_action"
             app:destination="@id/infoFragment" />
     </fragment>
 </navigation>

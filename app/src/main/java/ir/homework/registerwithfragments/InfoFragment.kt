@@ -9,11 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import ir.homework.registerwithfragments.databinding.FragmentInfoBinding
 
 class InfoFragment : Fragment() {
     lateinit var binding: FragmentInfoBinding
     lateinit var sharedPreferences: SharedPreferences
+    val args: InfoFragmentArgs by navArgs()
     var name = ""
     var username = ""
     var email = ""
@@ -35,11 +37,11 @@ class InfoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        name = arguments?.getString("name").toString()
-        username = arguments?.getString("username").toString()
-        email = arguments?.getString("email").toString()
-        password = arguments?.getString("password").toString()
-        isFemale = arguments?.getBoolean("isFemale")!!
+        name = args.name
+        username = args.username
+        email = args.email
+        password = args.password
+        isFemale = args.isFemale
 
         binding.tvFullName.text = "full name: " + name
         binding.tvUsername.text = "username: " + username
@@ -64,7 +66,7 @@ class InfoFragment : Fragment() {
         editor.apply()
         val bundle = Bundle()
         bundle.putBoolean("hasRegistered", true)
-        findNavController().navigate(R.id.action_infoFragment_to_registerFragment, bundle)
+        findNavController().navigate(R.id.save_action, bundle)
     }
 
     override fun onAttach(context: Context) {
